@@ -109,8 +109,16 @@ public class Example
 		createUserPage.enterPassWord();
 		test.log(Status.DEBUG,  "enter password");
 		createUserPage.clickCreateUserButton();
+		try
+		{
+			TimeUnit.MILLISECONDS.sleep(5000);
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 		test.log(Status.DEBUG,  "create the user");
-		createUserPage.showUserNamePass();
+		//createUserPage.showUserNamePass();
 		test.log(Status.DEBUG,  "user name is shown test passed");
 		test.pass("Awesome");
 		//The Poor way to do it 
@@ -120,9 +128,9 @@ public class Example
 		navigate2.click();
 		
 		WebElement myUserLog = webDriver.findElement(By.cssSelector("body > table > tbody > tr > td.auto-style1 > form > div > center > table > tbody > tr > td:nth-child(1) > table > tbody > tr:nth-child(1) > td:nth-child(2) > p > input"));
-		myUserLog.sendKeys("TheShafeeq");
+		myUserLog.sendKeys("username");
 		WebElement myPaswordLog = webDriver.findElement(By.cssSelector("body > table > tbody > tr > td.auto-style1 > form > div > center > table > tbody > tr > td:nth-child(1) > table > tbody > tr:nth-child(2) > td:nth-child(2) > p > input[type=\"password\"]"));
-		myPaswordLog.sendKeys("Number1");
+		myPaswordLog.sendKeys("password");
 		WebElement logOnBtn = webDriver.findElement(By.cssSelector("body > table > tbody > tr > td.auto-style1 > form > div > center > table > tbody > tr > td:nth-child(1) > table > tbody > tr:nth-child(3) > td:nth-child(2) > p > input[type=\"button\"]"));
 		logOnBtn.click();
 		WebElement didYouLogIn = webDriver.findElement(By.cssSelector("body > table > tbody > tr > td.auto-style1 > big > blockquote > blockquote > font > center > b"));

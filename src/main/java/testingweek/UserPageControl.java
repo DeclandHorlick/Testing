@@ -2,8 +2,12 @@ package testingweek;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class UserPageControl 
 {
+	ReadMySpreadSheet mySheet = new ReadMySpreadSheet(System.getProperty("user.dir") + "/src/main/resources/Example_Spreadsheet.xlsx");
+	List<String> row = mySheet.readRow(1, "Input Data");
 	@FindBy(css = "body > div > center > table > tbody > tr:nth-child(2) > td > div > center > table > tbody > tr > td:nth-child(2) > p > small > a:nth-child(6)")
 	private WebElement addUserPage;
 	
@@ -21,15 +25,19 @@ public class UserPageControl
 	
 	public void selectUserPage()
 	{
+
 		addUserPage.click();
 	}
 	public void enterUser()
 	{
-		enterUserName.sendKeys("TheShafeeq");
+
+		enterUserName.sendKeys(row.get(2));
 	}
 	public void enterPassWord()
 	{
-		enterUserPassWord.sendKeys("Number1");
+		//enterUserPassWord.sendKeys("Number1");
+
+		enterUserPassWord.sendKeys(row.get(3));
 	}
 	public void clickCreateUserButton()
 	{
@@ -37,7 +45,7 @@ public class UserPageControl
 	}
 	public void showUserNamePass()
 	{
-		System.out.println(userNamePassOutput.getText());
+		//System.out.println(userNamePassOutput.getText());
 	}
 	
 	
