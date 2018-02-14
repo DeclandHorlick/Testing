@@ -45,7 +45,7 @@ public class UserPageControl
 	}
 	public void showUserNamePass()
 	{
-		//System.out.println(userNamePassOutput.getText());
+		System.out.println(userNamePassOutput.getText());
 	}
 	
 	

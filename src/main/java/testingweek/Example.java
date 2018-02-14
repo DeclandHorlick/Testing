@@ -118,9 +118,11 @@ public class Example
 			e.printStackTrace();
 		}
 		test.log(Status.DEBUG,  "create the user");
-		//createUserPage.showUserNamePass();
+		createUserPage.showUserNamePass();
 		test.log(Status.DEBUG,  "user name is shown test passed");
 		test.pass("Awesome");
+
+
 		//The Poor way to do it 
 		//*****************************
 		//webDriver.navigate().to("http://thedemosite.co.uk/login.php");
@@ -134,14 +136,14 @@ public class Example
 		WebElement logOnBtn = webDriver.findElement(By.cssSelector("body > table > tbody > tr > td.auto-style1 > form > div > center > table > tbody > tr > td:nth-child(1) > table > tbody > tr:nth-child(3) > td:nth-child(2) > p > input[type=\"button\"]"));
 		logOnBtn.click();
 		WebElement didYouLogIn = webDriver.findElement(By.cssSelector("body > table > tbody > tr > td.auto-style1 > big > blockquote > blockquote > font > center > b"));
-		try
-		{
-			MyCamera.take(webDriver, "TestPassed");
-		}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}
+		//try
+		//{
+		//	MyCamera.take(webDriver, "TestPassed");
+		//}
+		//catch(IOException e)
+		//{
+		//	e.printStackTrace();
+		//}
 		
 		//assertEquals("You FAILURE","**Successful Login**",didYouLogIn.getText());
 		System.out.println("UserLoggedIn");
